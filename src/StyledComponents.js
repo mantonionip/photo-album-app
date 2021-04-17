@@ -20,6 +20,8 @@ export const Error = styled.div`
 	width: 400px;
 `;
 
+export const SearchBar = styled.div``;
+
 export const Label = styled.label`
 	color: #250d53;
 	display: block;
@@ -27,6 +29,17 @@ export const Label = styled.label`
 
 	font-size: ${({ size = 'medium' }) =>
 		({ small: '12px', medium: '16px', large: '21px' }[size])};
+`;
+
+export const NavContainer = styled.nav`
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 `;
 
 export const NavLink = styled(ReactRouterDomLink)`
@@ -37,11 +50,14 @@ export const NavLink = styled(ReactRouterDomLink)`
 	display: inline-block;
 	font-weight: bold;
 	padding: 10px;
-	margin-bottom: 10px;
 
 	&:hover {
 		background-color: #fff;
 		color: #250d53;
+	}
+
+	@media (max-width: 768px) {
+		order: -1;
 	}
 `;
 
@@ -64,6 +80,10 @@ export const Input = styled.input`
 	display: block;
 	width: 300px;
 	font-size: 16px;
+
+	@media (max-width: 480px) {
+		width: 250px;
+	}
 `;
 
 // Albums
@@ -81,7 +101,7 @@ export const Album = styled.li`
 `;
 
 // Album
-export const Container = styled.div`
+export const Container = styled.main`
 	width: 90%;
 	margin: 40px auto;
 `;
@@ -93,9 +113,10 @@ export const AlbumContainer = styled.div`
 	margin: 60px 0;
 	padding: 30px;
 	grid-gap: 40px;
+	text-align: center;
 `;
 export const Photograph = styled.div`
-	text-align: center;
+	padding: 10px;
 	transition: 0.4s all;
 
 	&:hover {
@@ -109,9 +130,17 @@ export const Link = styled.a`
 	text-decoration: none;
 `;
 
-export const PhotoTitle = styled.h5`
+export const TextContainer = styled.div`
+	width: 150px;
+	margin: 0 auto;
+`;
+
+export const PhotoTitle = styled.h2`
+	font-size: 14px;
 	margin: 10px 0;
 	text-align: center;
 `;
 
-export const Picture = styled.img``;
+export const Picture = styled.img`
+	max-width: 100%;
+`;

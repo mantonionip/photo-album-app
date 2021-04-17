@@ -4,6 +4,7 @@ import {
 	Link,
 	Picture,
 	PhotoTitle,
+	TextContainer,
 	Error,
 } from '../../StyledComponents';
 import getTitle from './getTitle';
@@ -29,12 +30,14 @@ const Album = ({ album, search }) => {
 								alt="An amazing colorful photo"
 							/>
 							{/* dangerouslySetInnerHTML is used because of the tags (<em></em>) inside of the parsed title */}
-							<PhotoTitle
-								dangerouslySetInnerHTML={getTitle(
-									title,
-									search
-								)}
-							/>
+							<TextContainer>
+								<PhotoTitle
+									dangerouslySetInnerHTML={getTitle(
+										title,
+										search
+									)}
+								/>
+							</TextContainer>
 						</Link>
 					</Photograph>
 				))}

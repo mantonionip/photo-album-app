@@ -21,7 +21,7 @@ test('renders Albums', () => {
 		</AlbumsProvider>
 	);
 
-	const titleElement = screen.getByText(/Albums:/i);
+	const titleElement = screen.getByText(/Photo Galleries:/i);
 	expect(titleElement).toBeInTheDocument();
 });
 

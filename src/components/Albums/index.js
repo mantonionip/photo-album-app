@@ -11,7 +11,7 @@ const AlbumsContainer = (props) => {
 
 	return (
 		<>
-			<Title>Photo Albums:</Title>
+			<Title>Photo Galleries:</Title>
 
 			{/* Shows spinner while albums is still loading */}
 			<Spinner loading={!albums.length} />

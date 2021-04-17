@@ -4,6 +4,14 @@ import Albums from './components/Albums';
 import Album from './components/Album';
 import { Container } from './StyledComponents';
 
+const React = require('react');
+const ReactDOM = require('react-dom');
+
+if (process.env.NODE_ENV !== 'production') {
+	const axe = require('@axe-core/react');
+	axe(React, ReactDOM, 1000);
+}
+
 // Main wrapper component
 function App() {
 	return (

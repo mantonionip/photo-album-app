@@ -2,7 +2,14 @@ import { useState } from 'react';
 import { useAlbum } from '../../context/albums';
 import Album from './Album';
 import Spinner from '../Spinner';
-import { Label, Input, NavLink } from '../../StyledComponents';
+import {
+	Title,
+	Label,
+	Input,
+	NavLink,
+	NavContainer,
+	SearchBar,
+} from '../../StyledComponents';
 
 const AlbumContainer = (props) => {
 	// Search input state
@@ -16,23 +23,31 @@ const AlbumContainer = (props) => {
 
 	return (
 		<>
-			<NavLink to="/">Back to Main Page</NavLink>
+			<Title>And your favorite photo is...</Title>
 
-			{/* Input label; styled component with optional size */}
-			<Label size="large" htmlFor="search-input">
-				Search photo:
-			</Label>
+			<NavContainer>
+				<SearchBar>
+					{/* Input label; styled component with optional size */}
+					<Label size="large" htmlFor="search-input">
+						Search photo:
+					</Label>
 
-			{/* Search input; always trims input (don't allow spaces at the beginning or end) */}
-			<Input
-				type="text"
-				aria-required="true"
-				id="search-input"
-				name="search"
-				value={search}
-				onChange={(event) => setSearch(event.target.value.trim())}
-				placeholder="e.g. accusamus"
-			/>
+					{/* Search input; always trims input (don't allow spaces at the beginning or end) */}
+					<Input
+						type="text"
+						aria-required="true"
+						id="search-input"
+						name="search"
+						value={search}
+						onChange={(event) =>
+							setSearch(event.target.value.trim())
+						}
+						placeholder="e.g. accusamus"
+					/>
+				</SearchBar>
+
+				<NavLink to="/">Back to Main Page</NavLink>
+			</NavContainer>
 
 			{/* Show spinner/loader while album is still loading */}
 			<Spinner loading={!album.length} />
