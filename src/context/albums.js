@@ -22,11 +22,9 @@ export const AlbumsProvider = (props) => {
 	useEffect(() => {
 		fetch(API.albums(1))
 			.then((res) => {
-				// console.log({ res });
 				return res.json();
 			})
 			.then((res) => {
-				// console.log({ resBody: res });
 				setAlbums(res);
 			});
 	}, []);
@@ -57,7 +55,6 @@ export const useAlbum = (albumId) => {
 			.then((album) => {
 				// Updates state with album
 				setAlbum(album);
-				// console.log({ album });
 				// Saves in memory to avoid multiple calls with the same request
 				albums[albumId] = album;
 			});
