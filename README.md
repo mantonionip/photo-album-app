@@ -1,3 +1,5 @@
+[Live Demo](https://my-photo-app.netlify.app/)
+
 ## Albums Context
 
 Inside of ./src/context/albums.js you can find 3 exports:
