@@ -4,6 +4,8 @@ import Albums from './components/Albums';
 import Album from './components/Album';
 import { Container } from './StyledComponents';
 
+// Code that observes between each component change and the time the analyze starts
+// This only runs in the development environment
 const React = require('react');
 const ReactDOM = require('react-dom');
 
