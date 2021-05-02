@@ -1,15 +1,9 @@
 import { useState } from 'react';
-import { useAlbum } from '../../context/albums';
+import useAlbum from '../../hooks/useAlbum';
 import Album from './Album';
+import SearchBar from './SearchBar';
 import Spinner from '../Spinner';
-import {
-	Title,
-	Label,
-	Input,
-	NavLink,
-	NavContainer,
-	SearchBar,
-} from '../../StyledComponents';
+import { Title, NavLink, NavContainer } from '../../StyledComponents';
 
 const AlbumContainer = (props) => {
 	// Search input state
@@ -26,26 +20,7 @@ const AlbumContainer = (props) => {
 			<Title>And your favorite photo is...</Title>
 
 			<NavContainer>
-				<SearchBar>
-					{/* Input label; styled component with optional size */}
-					<Label size="large" htmlFor="search-input">
-						Search photo:
-					</Label>
-
-					{/* Search input; always trims input (don't allow spaces at the beginning or end) */}
-					<Input
-						type="text"
-						aria-required="true"
-						id="search-input"
-						name="search"
-						value={search}
-						onChange={(event) =>
-							setSearch(event.target.value.trim())
-						}
-						placeholder="e.g. accusamus"
-					/>
-				</SearchBar>
-
+				<SearchBar search={search} setSearch={setSearch} />
 				<NavLink to="/">Back to Main Page</NavLink>
 			</NavContainer>
 
