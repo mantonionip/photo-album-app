@@ -20,7 +20,9 @@ export const Error = styled.div`
 	width: 400px;
 `;
 
-export const SearchBar = styled.div``;
+export const SearchBar = styled.div`
+	position: relative;
+`;
 
 export const Label = styled.label`
 	color: #250d53;
@@ -29,6 +31,15 @@ export const Label = styled.label`
 
 	font-size: ${({ size = 'medium' }) =>
 		({ small: '12px', medium: '16px', large: '21px' }[size])};
+`;
+
+export const ClearSearch = styled.button`
+	position: absolute;
+	bottom: 8px;
+	right: 10px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
 `;
 
 export const NavContainer = styled.nav`
