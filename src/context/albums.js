@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import API from '../api';
 
 // to avoid PROPS DRILLING in order to pass data around in our app:
@@ -7,8 +7,8 @@ import API from '../api';
 
 const userId = 1;
 
-// Context for albums collection; exports by default - Defines a new Context
-const AlbumsContext = React.createContext();
+// Context for albums collection; exports by default - Defines a new Context - Context is an OBJECT
+const AlbumsContext = createContext();
 export default AlbumsContext;
 
 // Wrapper Context Component Provider
@@ -33,7 +33,7 @@ export const AlbumsProvider = (props) => {
 	return (
 		// a value prop to be passed to consuming components that are descendants of this Provider
 		// one Provider can be connected to many consumers.
-		<AlbumsContext.Provider value={{ albums, setAlbums }}>
+		<AlbumsContext.Provider value={{ albums }}>
 			{/* Renders components inside */}
 			{props.children}
 		</AlbumsContext.Provider>
