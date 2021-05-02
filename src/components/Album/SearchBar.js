@@ -1,7 +1,12 @@
+import React, { useRef } from 'react';
 import { Label, Input, SearchBar, ClearSearch } from '../../StyledComponents';
 
 const Search = ({ search, setSearch }) => {
-	const clearSearch = () => setSearch('');
+	const searchInputRef = useRef();
+	const handleClearSearch = () => {
+		setSearch('');
+		searchInputRef.current.focus();
+	};
 
 	return (
 		<>
@@ -18,11 +23,14 @@ const Search = ({ search, setSearch }) => {
 					id="search-input"
 					name="search"
 					value={search}
+					ref={searchInputRef} // refs give us a way to access the React elements created in the render method - if create and attach a ref to input, we'd have tha ability to focus it
 					onChange={(event) => setSearch(event.target.value.trim())}
 					placeholder="e.g. accusamus"
 				/>
 
-				{search && <ClearSearch onClick={clearSearch}>x</ClearSearch>}
+				{search && (
+					<ClearSearch onClick={handleClearSearch}>x</ClearSearch>
+				)}
 			</SearchBar>
 		</>
 	);
