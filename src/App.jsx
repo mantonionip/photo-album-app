@@ -23,12 +23,12 @@ function App() {
 			<AlbumsProvider>
 				{/* Main div container */}
 				<Container>
-					{/* Router Switch */}
+					{/* Router Switch - makes sure only one of the Routes matches */}
 					<Switch>
 						{/* Home Page */}
 						<Route path="/" exact component={Albums} />
 
-						{/* Album Page */}
+						{/* Album Page - (with : we make a URL parameter, it's like a variable) */}
 						<Route path="/album/:albumId" component={Album}></Route>
 					</Switch>
 				</Container>
