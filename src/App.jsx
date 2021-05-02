@@ -26,10 +26,14 @@ function App() {
 					{/* Router Switch - makes sure only one of the Routes matches */}
 					<Switch>
 						{/* Home Page */}
-						<Route path="/" exact component={Albums} />
+						<Route exact path="/" component={Albums} />
 
 						{/* Album Page - (with : we make a URL parameter, it's like a variable) */}
-						<Route path="/album/:albumId" component={Album}></Route>
+						<Route
+							exact
+							path="/album/:albumId"
+							component={Album}
+						></Route>
 					</Switch>
 				</Container>
 			</AlbumsProvider>
