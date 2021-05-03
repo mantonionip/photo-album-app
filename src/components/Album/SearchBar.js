@@ -3,6 +3,7 @@ import { Label, Input, SearchBar, ClearSearch } from '../../StyledComponents';
 
 const Search = ({ search, setSearch }) => {
 	const searchInputRef = useRef();
+
 	const handleClearSearch = () => {
 		setSearch('');
 		searchInputRef.current.focus();
