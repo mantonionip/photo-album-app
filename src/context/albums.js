@@ -8,6 +8,8 @@ import API from '../api';
 const userId = 1;
 
 // Context for albums collection; exports by default - Defines a new Context - Context is an OBJECT
+// React.createContext returns an object with 2 values; Provider & Consumer
+// Create React Context and make it available to other files in order to consume
 const AlbumsContext = createContext();
 export default AlbumsContext;
 
@@ -17,7 +19,7 @@ export const AlbumsProvider = (props) => {
 	const [albums, setAlbums] = useState([]);
 
 	// Get all album
-	// useEffect with [] (empty dependencies); works as older "componentDidMount"
+
 	useEffect(() => {
 		fetch(API.albums(userId))
 			.then((res) => {
@@ -26,12 +28,17 @@ export const AlbumsProvider = (props) => {
 			.then((res) => {
 				setAlbums(res);
 			});
+		// useEffect with [] (empty dependencies); works as older "componentDidMount"
+		// [] prevents useEffect from running on every render - if removed, it renders countless times
+		// [] ensures that the content of our effect function only run on component mounted and not on any updates
 	}, []);
 
 	// In order to provide values to our child components from a parent component with REACT CONTEXT, we need to setup a PROVIDER.
 	// Pass context to children components
 	return (
 		// a value prop to be passed to consuming components that are descendants of this Provider
+		// We need to decide what values we want to provide to our child components - We do that with the help of a value attribute
+		// The value we pass down is "albums"
 		// one Provider can be connected to many consumers.
 		<AlbumsContext.Provider value={{ albums }}>
 			{/* Renders components inside */}
