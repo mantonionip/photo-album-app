@@ -19,7 +19,7 @@ function App() {
 	return (
 		// Routing feature for handling "/" and "/album/:albumId" paths
 		<BrowserRouter>
-			{/* Album list provider; provides with albums collection - AlbumProvider is the context passing albums */}
+			{/* Album list provider; provides with albums collection - AlbumsProvider is the context passing albums */}
 			<AlbumsProvider>
 				{/* Main div container */}
 				<Container>
