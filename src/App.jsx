@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { AlbumsProvider } from './context/albums';
+import { AlbumsProvider } from './context/AlbumsContext';
 import Albums from './components/Albums';
 import Album from './components/Album';
 import { Container } from './StyledComponents';
@@ -19,7 +19,7 @@ function App() {
 	return (
 		// Routing feature for handling "/" and "/album/:albumId" paths
 		<BrowserRouter>
-			{/* Album list provider; provides with albums collection */}
+			{/* Album list provider; provides with albums collection - AlbumProvider is the context passing albums */}
 			<AlbumsProvider>
 				{/* Main div container */}
 				<Container>
