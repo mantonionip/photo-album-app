@@ -21,8 +21,8 @@ export const AlbumsProvider = (props) => {
 	// Album state
 	const [albums, setAlbums] = useState([]);
 
-	// Get all album
-
+	// Get all albums
+	// useEffect with [] (empty dependencies); works as older "componentDidMount"
 	useEffect(() => {
 		fetch(API.albums(userId))
 			.then((res) => {
@@ -33,8 +33,7 @@ export const AlbumsProvider = (props) => {
 			});
 		// useEffect runs anytime there's a re-render and we're getting data inside of FETCH API call - We request albums and update the value of albums
 		// And then that triggers a re-render - because albums changes even if the albums doesn't seem to change, it's the same array every time, useEffect is going to run again cuz something changed in the state.
-		// We can fix this very easily by passing in a 2nd argument [] at the end, and this argument takes a FORM OF AN ARRAY and we can pass in to this array any number of pieces of data in the state that if they change useEffect should run. If anything else changes, useEffect SHOULD NOT RUN.
-		// useEffect with [] (empty dependencies); works as older "componentDidMount"
+		// We can fix this very easily by passing in a 2nd argument [] at the end, and this argument takes a FORM OF AN ARRAY and we can pass in to this array any number of pieces of data in the state that if they change, useEffect should run. If anything else changes, useEffect SHOULD NOT RUN.
 		// [] prevents useEffect from running on every render - if removed, it renders countless times
 		// [] ensures that the content of our effect function only run on component mounted and not on any updates
 	}, []);
