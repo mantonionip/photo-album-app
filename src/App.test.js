@@ -7,7 +7,7 @@ import AlbumsContainer from './components/Albums';
 import Albums from './components/Albums/Albums';
 
 // Wrappers
-import { AlbumsProvider } from './context/albums';
+import { AlbumsProvider } from './context/AlbumsContext';
 import { BrowserRouter } from 'react-router-dom';
 
 // Mocks
