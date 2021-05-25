@@ -8,7 +8,6 @@ const getTitle = (title, search) => {
 	if (search) {
 		title = title.replace(
 			new RegExp(`\\w*${search}\\w*`, 'g'),
-			// match method retrieves the result of matching a string against a regular expression
 			(match) => `<em style="color: red">${match}</em>`
 		);
 	}

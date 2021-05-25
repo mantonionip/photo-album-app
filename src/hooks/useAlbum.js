@@ -21,9 +21,6 @@ const useAlbum = (albumId) => {
 				// Saves in memory to avoid multiple calls with the same request
 				albums[albumId] = album;
 			});
-		// passing a second argument, an array [], to change the behaviour of useEffect to ensure the contents of useEffect function only run on component mounted and not on any updates.
-		// the albumId in the array is DEPENDENCY VALUE - Some operation you only want to happen when albumId updates
-		// Don't wanna run useEffect anything at all updates in this component (Only when albumId changes)
 	}, [albumId]);
 
 	return album;
